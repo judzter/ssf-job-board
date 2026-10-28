@@ -1,0 +1,248 @@
+<!--
+  SSF Portfolio Job Board — Webflow Embed
+  ────────────────────────────────────────
+  Paste this entire block into a Webflow "Embed" element.
+  It reads jobs.json from your GitHub Pages URL and renders
+  a live, searchable job board.
+
+  Before pasting:
+  1. Replace JOBS_JSON_URL with your actual GitHub Pages raw URL, e.g.:
+     https://<your-github-org>.github.io/ssf-job-board/jobs.json
+  2. Style overrides can go in the <style> block below or in Webflow's
+     custom CSS panel — all classes are prefixed "ssf-" to avoid collisions.
+-->
+
+<style>
+  /* ── Reset & tokens ─────────────────────────────────────── */
+  #ssf-board * { box-sizing: border-box; }
+  #ssf-board {
+    --ssf-bg:       #ffffff;
+    --ssf-border:   #e5e7eb;
+    --ssf-text:     #111827;
+    --ssf-muted:    #6b7280;
+    --ssf-accent:   #111827;   /* swap for Sarah's brand colour */
+    --ssf-tag-bg:   #f3f4f6;
+    --ssf-radius:   8px;
+    --ssf-font:     inherit;
+    font-family: var(--ssf-font);
+    color: var(--ssf-text);
+  }
+
+  /* ── Controls bar ───────────────────────────────────────── */
+  .ssf-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+  .ssf-search {
+    flex: 1 1 220px;
+    padding: 10px 14px;
+    border: 1px solid var(--ssf-border);
+    border-radius: var(--ssf-radius);
+    font-size: 14px;
+    outline: none;
+  }
+  .ssf-search:focus { border-color: var(--ssf-accent); }
+  .ssf-filter {
+    padding: 10px 14px;
+    border: 1px solid var(--ssf-border);
+    border-radius: var(--ssf-radius);
+    font-size: 14px;
+    background: var(--ssf-bg);
+    cursor: pointer;
+    outline: none;
+  }
+  .ssf-count {
+    font-size: 13px;
+    color: var(--ssf-muted);
+    margin-left: auto;
+  }
+
+  /* ── Job card ────────────────────────────────────────────── */
+  .ssf-grid {
+    display: grid;
+    gap: 12px;
+  }
+  .ssf-card {
+    border: 1px solid var(--ssf-border);
+    border-radius: var(--ssf-radius);
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    transition: border-color .15s;
+  }
+  .ssf-card:hover { border-color: var(--ssf-accent); }
+  .ssf-card-body { flex: 1; }
+  .ssf-job-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: var(--ssf-text);
+  }
+  .ssf-company {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ssf-muted);
+    margin: 0 0 8px;
+  }
+  .ssf-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .ssf-tag {
+    background: var(--ssf-tag-bg);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 12px;
+    color: var(--ssf-muted);
+  }
+  .ssf-apply-btn {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 8px 16px;
+    background: var(--ssf-accent);
+    color: #fff;
+    border-radius: var(--ssf-radius);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: opacity .15s;
+  }
+  .ssf-apply-btn:hover { opacity: .85; }
+
+  /* ── States ──────────────────────────────────────────────── */
+  .ssf-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--ssf-muted);
+    font-size: 14px;
+  }
+  .ssf-updated {
+    font-size: 12px;
+    color: var(--ssf-muted);
+    margin-top: 20px;
+    text-align: right;
+  }
+
+  @media (max-width: 540px) {
+    .ssf-card { flex-direction: column; }
+    .ssf-apply-btn { width: 100%; text-align: center; }
+  }
+</style>
+
+<div id="ssf-board">
+  <div class="ssf-controls">
+    <input class="ssf-search" type="search" id="ssf-search"
+           placeholder="Search jobs, companies, roles…" oninput="ssfRender()">
+    <select class="ssf-filter" id="ssf-company-filter" onchange="ssfRender()">
+      <option value="">All companies</option>
+    </select>
+    <span class="ssf-count" id="ssf-count"></span>
+  </div>
+  <div class="ssf-grid" id="ssf-grid">
+    <p class="ssf-message" id="ssf-status">Loading jobs…</p>
+  </div>
+  <p class="ssf-updated" id="ssf-updated"></p>
+</div>
+
+<script>
+(function () {
+  // ── CONFIG — replace this URL ──────────────────────────────────
+  var JOBS_JSON_URL = "https://YOUR-GITHUB-ORG.github.io/ssf-job-board/jobs.json";
+  // ──────────────────────────────────────────────────────────────
+
+  var allJobs = [];
+
+  function fmt(iso) {
+    if (!iso) return "";
+    try {
+      return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    } catch (e) { return ""; }
+  }
+
+  function esc(s) {
+    return (s || "").replace(/[<>"'&]/g, function (c) {
+      return { "<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;","&":"&amp;" }[c];
+    });
+  }
+
+  window.ssfRender = function () {
+    var q   = (document.getElementById("ssf-search").value || "").toLowerCase().trim();
+    var co  = document.getElementById("ssf-company-filter").value;
+    var grid = document.getElementById("ssf-grid");
+    var countEl = document.getElementById("ssf-count");
+
+    var filtered = allJobs.filter(function (j) {
+      if (co && j.company !== co) return false;
+      if (q) {
+        var hay = [j.title, j.company, j.location, j.department].join(" ").toLowerCase();
+        return hay.indexOf(q) !== -1;
+      }
+      return true;
+    });
+
+    countEl.textContent = filtered.length + " " + (filtered.length === 1 ? "job" : "jobs");
+
+    if (!filtered.length) {
+      grid.innerHTML = '<p class="ssf-message">No jobs match your search.</p>';
+      return;
+    }
+
+    grid.innerHTML = filtered.map(function (j) {
+      var tags = [j.location, j.department].filter(Boolean);
+      return '<div class="ssf-card">' +
+        '<div class="ssf-card-body">' +
+          '<p class="ssf-job-title">' + esc(j.title) + '</p>' +
+          '<p class="ssf-company">' + esc(j.company) + '</p>' +
+          (tags.length ? '<div class="ssf-tags">' + tags.map(function (t) {
+            return '<span class="ssf-tag">' + esc(t) + '</span>';
+          }).join("") + '</div>' : '') +
+        '</div>' +
+        (j.apply_url ? '<a class="ssf-apply-btn" href="' + esc(j.apply_url) + '" target="_blank" rel="noopener">Apply →</a>' : '') +
+      '</div>';
+    }).join("");
+  };
+
+  // Load data
+  fetch(JOBS_JSON_URL)
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      allJobs = (data.jobs || []).slice().sort(function (a, b) {
+        return a.company.localeCompare(b.company);
+      });
+
+      // Populate company filter
+      var companies = [...new Set(allJobs.map(function (j) { return j.company; }))].sort();
+      var sel = document.getElementById("ssf-company-filter");
+      companies.forEach(function (c) {
+        var opt = document.createElement("option");
+        opt.value = c;
+        opt.textContent = c;
+        sel.appendChild(opt);
+      });
+
+      // Updated timestamp
+      if (data.updated_at) {
+        document.getElementById("ssf-updated").textContent =
+          "Last updated " + fmt(data.updated_at);
+      }
+
+      document.getElementById("ssf-status").style.display = "none";
+      window.ssfRender();
+    })
+    .catch(function (err) {
+      document.getElementById("ssf-status").textContent =
+        "Could not load jobs right now. Please try again later.";
+      console.error("[SSF Jobs]", err);
+    });
+})();
+</script>

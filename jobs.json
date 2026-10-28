@@ -1,0 +1,424 @@
+{
+  "updated_at": "2026-10-28T08:59:29.362237+00:00",
+  "total_jobs": 0,
+  "total_companies": 52,
+  "companies": [
+    {
+      "name": "Animation",
+      "domain": "animation.inc",
+      "description": "Real-time generative AI animation technology",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Anyreach",
+      "domain": "anyreach.ai",
+      "description": "Trustworthy voice agents",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Arcus Labs",
+      "domain": "arcuslabs.dev",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Bandana",
+      "domain": "bandana.com",
+      "description": "Hyper local job platform for hourly workers",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "BoltWise",
+      "domain": "getboltwise.com",
+      "description": "AI powered quoting software for fasteners",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Cascading AI",
+      "domain": "cascading.ai",
+      "description": "AI agents for banking workflows",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Clema",
+      "domain": "clemacooling.com",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Compute Desk",
+      "domain": "compute-desk.com",
+      "description": "Bringing the efficient market hypothesis to the compute markets",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "f2.ai",
+      "domain": "f2.ai",
+      "description": "The AI platform for private markets investors",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Faberlabor",
+      "domain": "faberlabor.com",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Finrank",
+      "domain": "finrank.ai",
+      "description": "Turning every branch interaction into measurable revenue",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Flitch",
+      "domain": "getflitch.com",
+      "description": "Modern OS for independent LBM dealers",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Fractal Labs",
+      "domain": "fractal-labs.gg",
+      "description": "Auto-generating deep narrative games",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Galini",
+      "domain": "galini.ai",
+      "description": "Compliance guardrails for AI applications",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Galvant",
+      "domain": "galvant.ai",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "GenPeach AI",
+      "domain": "genpeach.ai",
+      "description": "Next-Gen AI Models",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Haptica Robotics",
+      "domain": "hapticarobotics.com",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Hexagon",
+      "domain": "joinhexagon.com",
+      "description": "AI-powered product discovery",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "HiringCafe",
+      "domain": "hiring.cafe",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Hilt",
+      "domain": "hilt.ai",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Howie",
+      "domain": "howie.ai",
+      "description": "AI powered scheduling assistant",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "hyperGTM",
+      "domain": "hypergtm.com",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Junction",
+      "domain": "withjunction.com",
+      "description": "Autonomous LTL freight platform",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Kernel",
+      "domain": "kernel.ai",
+      "description": "Customized AI to grow ARR via outbound",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Mirai",
+      "domain": "trymirai.com",
+      "description": "On-device layer for AI model makers",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Mundane",
+      "domain": "mundane.bot",
+      "description": "General purpose robots for mundane tasks",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Osmo",
+      "domain": "osmo.inc",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Pika",
+      "domain": "pika.art",
+      "description": "Generative AI for video",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Pinnacle",
+      "domain": "heypinnacle.com",
+      "description": "AI personalized coaching for managers",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Poesis",
+      "domain": "poesis.ai",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Prav\u0101h",
+      "domain": "pravah.ai",
+      "description": "AI-powered grid intelligence",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Predictive Horizons",
+      "domain": "predictivehorizons.ai",
+      "description": "Prognostics platform powered by AI",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Rayline",
+      "domain": "rayline.ai",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Rork",
+      "domain": "rork.com",
+      "description": "Build native mobile apps, fast",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Rowspace",
+      "domain": "rowspace.ai",
+      "description": "AI powered intelligence for financial services",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Scope Zero",
+      "domain": "scope-zero.com",
+      "description": "Carbon Savings Account benefit platform",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Sirius Technology",
+      "domain": "thesirius.ai",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Skyfire",
+      "domain": "skyfire.xyz",
+      "description": "Agent to agent payments",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Skyward",
+      "domain": "skywardwildfire.com",
+      "description": "Wildfire prevention via targeting lightning mitigation",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Somastacks",
+      "domain": "somastacks.com",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Soulside",
+      "domain": "soulside.ai",
+      "description": "AI enabled group mental health platform",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Soverin",
+      "domain": "soverin.ai",
+      "description": "The Marketplace for AI",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Streamlane",
+      "domain": "getstreamlane.com",
+      "description": "AI powered optimization for shipping operations",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Syntro",
+      "domain": "usesyntro.com",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Takeoff AI",
+      "domain": "takeoff41.com",
+      "description": "AI for health optimization",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Tely AI",
+      "domain": "tely.ai",
+      "description": "Autonomous AI agent with vertical expertise",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Tessel Bio",
+      "domain": "tessel.bio",
+      "description": "Chronic disease models for drug discovery",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "TrueMeter",
+      "domain": "truemeter.com",
+      "description": "AI energy agent for flat-rate power billing",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "TruTec",
+      "domain": "trutec.ai",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Unreal Labs",
+      "domain": "unreallabs.ai",
+      "description": "End-to-end AI agent for performance marketing",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Veros",
+      "domain": "verostrust.com",
+      "description": "",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    },
+    {
+      "name": "Viewpoints AI",
+      "domain": "viewpoints.ai",
+      "description": "Large-scale market research via AI audiences",
+      "ats": null,
+      "slug": null,
+      "job_count": 0
+    }
+  ],
+  "jobs": []
+}
